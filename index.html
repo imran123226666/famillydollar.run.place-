@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Family Dollar Gift Card</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff4f4;
+    }
+
+    .container {
+      max-width: 360px;
+      margin: 0 auto;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .slider {
+      overflow: hidden;
+      width: 100%;
+      height: 200px;
+      position: relative;
+      border-radius: 10px;
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 9s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0%, 20% { transform: translateX(0%); }
+      33%, 53% { transform: translateX(-100%); }
+      66%, 86% { transform: translateX(-200%); }
+      100% { transform: translateX(0%); }
+    }
+
+    .card-section {
+      margin: 20px 0;
+    }
+
+    .card-photo {
+      width: 100%;
+      height: 150px;
+      background: url('https://www.gannett-cdn.com/presto/2021/02/17/PPAS/9a79b3e0-3e8e-4f76-bdc7-e97d648fa9c3-Family_Dollar_Exterior.jpg') no-repeat center;
+      background-size: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: block;
+      background: linear-gradient(to bottom, #ff9900, #ff6600);
+      color: white;
+      padding: 12px;
+      text-align: center;
+      text-decoration: none;
+      margin: 20px 0;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 4px #b30000;
+    }
+
+    .btn:active {
+      box-shadow: none;
+      transform: translateY(4px);
+    }
+
+    .countdown {
+      font-weight: bold;
+      text-align: center;
+      margin: 10px 0;
+      color: #b30000;
+    }
+
+    .review {
+      margin: 20px 0;
+    }
+
+    .review-box {
+      background: #ff9900;
+      color: white;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .about {
+      background: #ff6600;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .comments {
+      margin: 20px 0;
+    }
+
+    .comment {
+      background: #fef3e2;
+      border: 1px solid #ffc107;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .footer-text {
+      font-size: 10px;
+      color: #888;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="slider">
+      <div class="slides">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Family_Dollar_logo.svg" alt="Slide 1">
+        <img src="https://www.gannett-cdn.com/presto/2021/02/17/PPAS/9a79b3e0-3e8e-4f76-bdc7-e97d648fa9c3-Family_Dollar_Exterior.jpg" alt="Slide 2">
+        <img src="https://cdn.cnn.com/cnnnext/dam/assets/240313134017-family-dollar-store-closings-0313-restricted-super-tease.jpg" alt="Slide 3">
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-photo"></div>
+      <div class="card-text">
+        🎁 Claim your $500 Family Dollar gift card today!<br>
+        Use it on groceries, home essentials, and more at your nearest Family Dollar store. Hurry – limited supply available!
+      </div>
+    </div>
+
+    <div class="countdown">
+      ⏳ Offer expires in <span id="timer">04:59</span>
+    </div>
+
+    <a class="btn" href="#">🎉 Explore Now</a>
+
+    <div class="review">
+      <div class="review-box">⭐️⭐️⭐️⭐️⭐️ "Amazing! Got my gift card within minutes!" - Sarah L.</div>
+      <div class="review-box">⭐️⭐️⭐️⭐️ "Easy to use. Spent it all on cleaning products!" - Mike R.</div>
+      <div class="review-box">⭐️⭐️⭐️⭐️⭐️ "Got my $500 card fast and free!" - Emily D.</div>
+    </div>
+
+    <div class="about">Family Dollar Gift cards are being issued from</div>
+
+    <div class="comments">
+      <div class="comment"><b>Rina:</b> This worked for me! Thanks a lot 🙌</div>
+      <div class="comment"><b>James:</b> At first I thought it was fake, but I actually received it.</div>
+      <div class="comment"><b>Kyle:</b> Love Family Dollar – this is perfect!</div>
+    </div>
+
+    <div class="footer-text">
+      This site is not affiliated with Family Dollar. It's a promotional offer page for potential rewards.
+    </div>
+
+  </div>
+
+  <script>
+    // Countdown timer
+    let timeLeft = 299;
+    const timerElement = document.getElementById("timer");
+    const timerInterval = setInterval(() => {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      timeLeft--;
+      if (timeLeft < 0) clearInterval(timerInterval);
+    }, 1000);
+
+    // Sequential Review Display
+    const reviews = document.querySelectorAll(".review-box");
+    let index = 0;
+    function showNextReview() {
+      if (index < reviews.length) {
+        reviews[index].style.display = "block";
+        index++;
+        setTimeout(showNextReview, 2000);
+      }
+    }
+    showNextReview();
+  </script>
+</body>
+</html>
